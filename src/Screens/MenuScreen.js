@@ -1,8 +1,11 @@
-import React from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
-import { MenuStyles } from '../Styles/MenuStyles';
+import React, { useState } from 'react';
+import { View, Image, Text, TextInput, TouchableOpacity } from 'react-native';
+import { MenuStyles } from '../Styles/MenuStyles.ts';
+import Fontisto from 'react-native-vector-icons/dist/Fontisto';
 
 const MenuScreen = ({navigation}) => {
+
+    const [search, setSearch] = useState('');
 
     return (
         <View style={MenuStyles.containerMaster}>
@@ -15,6 +18,29 @@ const MenuScreen = ({navigation}) => {
                 style={MenuStyles.logo}
                 source={require('../Assets/logo.png')}
             />
+            <TouchableOpacity
+                style={MenuStyles.newHistoryButton}
+                onPress={() =>
+                    navigation.navigate('CreationScreen')
+                }>
+                <Text style={MenuStyles.newHistoryText}>NOVA HISTÓRIA</Text>
+            </TouchableOpacity>
+            <View style={MenuStyles.searchBar}>
+                <Fontisto
+                    style={MenuStyles.searchIcon}
+                    name='search'
+                    color='#BFC4D9'>
+                </Fontisto>
+                <TextInput
+                    style={MenuStyles.input}
+                    onChangeText={(text) =>
+                        setSearch(text)
+                    }
+                    value={search} placeholder='Pesquisar'
+                    placeholderTextColor="#BFC4D9"
+                    keyboardType='default'>
+                </TextInput>
+            </View>
         </View>
     );
 };

@@ -3,7 +3,7 @@ import { View, Image, Text, TextInput, TouchableOpacity, TouchableWithoutFeedbac
 import { useNavigation } from '@react-navigation/native';
 import FontAwesome from 'react-native-vector-icons/dist/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/dist/MaterialCommunityIcons';
-import { LoginStyles } from '../Styles/LoginStyles';
+import { LoginStyles } from '../Styles/LoginStyles.ts';
 
 const LoginScreen = () => {
 
@@ -44,7 +44,7 @@ const LoginScreen = () => {
                         onChangeText={(text) =>
                             setEmail(text)
                         }
-                        value={email} placeholder='digite seu email'
+                        value={email} placeholder='Digite seu email'
                         placeholderTextColor="#AB8103"
                         keyboardType='email-address'>
                     </TextInput>
@@ -62,7 +62,7 @@ const LoginScreen = () => {
                         onChangeText={(text) =>
                             setSenha(text)
                         }
-                        value={senha} placeholder='digite sua senha'
+                        value={senha} placeholder='Digite sua senha'
                         placeholderTextColor="#AB8103"
                         keyboardType='email-address'>
                     </TextInput>

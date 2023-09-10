@@ -3,14 +3,14 @@ import { View, Image, Text, TextInput, TouchableOpacity, TouchableWithoutFeedbac
 import { useNavigation } from '@react-navigation/native';
 import FontAwesome from 'react-native-vector-icons/dist/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/dist/MaterialCommunityIcons';
-import { CadastroStyles } from '../Styles/CadastroStyles';
+import { CadastroStyles } from '../Styles/CadastroStyles.ts';
 
 const CadastroScreen = () => {
 
     const navigation = useNavigation();
     const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
-    const [confirmarSenha, setConfirmarSenha] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     return (
         <View style={CadastroStyles.containerMaster}>
@@ -45,7 +45,7 @@ const CadastroScreen = () => {
                         onChangeText={(text) =>
                             setEmail(text)
                         }
-                        value={email} placeholder='digite seu email'
+                        value={email} placeholder='Digite seu email'
                         placeholderTextColor="#AB8103"
                         keyboardType='email-address'>
                     </TextInput>
@@ -61,11 +61,12 @@ const CadastroScreen = () => {
                     <TextInput
                         style={CadastroStyles.input}
                         onChangeText={(text) =>
-                            setSenha(text)
+                            setPassword(text)
                         }
-                        value={senha} placeholder='digite sua senha'
+                        value={password} placeholder='Digite sua senha'
                         placeholderTextColor="#AB8103"
-                        keyboardType='email-address'>
+                        keyboardType='default'
+                        secureTextEntry={true}>
                     </TextInput>
                 </View>
                 <View style={CadastroStyles.underline}></View>
@@ -79,12 +80,13 @@ const CadastroScreen = () => {
                     <TextInput
                         style={CadastroStyles.input}
                         onChangeText={(text) =>
-                            setConfirmarSenha(text)
+                            setConfirmPassword(text)
                         }
-                        value={confirmarSenha}
-                        placeholder='confirme sua senha'
+                        value={confirmPassword}
+                        placeholder='Confirme sua senha'
                         placeholderTextColor="#AB8103"
-                        keyboardType='email-address'>
+                        keyboardType='default'
+                        secureTextEntry={true}>
                     </TextInput>
                 </View>
                 <View style={CadastroStyles.underline}></View>
